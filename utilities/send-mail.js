@@ -38,7 +38,7 @@ exports.notice = (comment) => {
   const name = comment.get('nick')
   const text = comment.get('comment')
   const url = process.env.SITE_URL + comment.get('url')
-  const manage_url = process.env.MANAGE_URL
+  const admin_url = process.env.ADMIN_URL
   
 
   if (!process.env.DISABLE_EMAIL) {
@@ -75,7 +75,7 @@ exports.notice = (comment) => {
 
 ${text}
 
-#### [\[查看评论\]](${url + '#' + comment.get('objectId')})   [\[管理评论\]](${manage_url})`
+#### [\[查看评论\]](${url + '#' + comment.get('objectId')})   [\[管理评论\]](${admin_url})`
     axios({
       method: 'post',
       url: `https://sc.ftqq.com/${process.env.SERVER_KEY}.send`,
