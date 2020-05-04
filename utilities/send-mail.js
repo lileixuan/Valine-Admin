@@ -38,6 +38,8 @@ exports.notice = (comment) => {
   const name = comment.get('nick')
   const text = comment.get('comment')
   const url = process.env.SITE_URL + comment.get('url')
+  const manage_url = process.env.MANAGE_URL
+  
 
   if (!process.env.DISABLE_EMAIL) {
     const emailSubject = process.env.MAIL_SUBJECT_ADMIN ? eval('`' + process.env.MAIL_SUBJECT_ADMIN + '`') : '👉 咚！「' + process.env.SITE_NAME + '」上有新评论了'
@@ -73,11 +75,11 @@ exports.notice = (comment) => {
 
 ${text}
 
-#### [\[查看评论\]](${url + '#' + comment.get('objectId')})`
+#### [\[查看评论\]](${url + '#' + comment.get('objectId')})   [\[管理评论\]](${manage_url})`
     axios({
       method: 'post',
       url: `https://sc.ftqq.com/${process.env.SERVER_KEY}.send`,
-      data: `text=咚！「${process.env.SITE_NAME}」上有新评论了&desp=${scContent}`,
+      data: `text=「${process.env.SITE_NAME}」新评论&desp=${scContent}`,
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
