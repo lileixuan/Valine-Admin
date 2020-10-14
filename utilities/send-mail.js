@@ -28,6 +28,14 @@ transporter.verify(function(error, success) {
 });
 
 exports.notice = (comment) => {
+
+    // 站长自己发的评论不需要通知
+    if (comment.get('mail') === process.env.BLOGGER_EMAIL 
+        || comment.get('mail') === process.env.SMTP_USER 
+        || comment.get('mail') === process.env.FILTER_EMAIL) {
+        return;
+    }
+
     let SITE_NAME = process.env.SITE_NAME;
     let NICK = comment.get('nick');
     let COMMENT = comment.get('comment');
@@ -61,6 +69,14 @@ exports.notice = (comment) => {
 }
 
 exports.send = (currentComment, parentComment)=> {
+
+    // 站长被 @ 不需要提醒
+    if (parentComment.get('mail') === process.env.BLOGGER_EMAIL 
+        || parentComment.get('mail') === process.env.SMTP_USER 
+        || parentComment.get('mail') === process.env.FILTER_EMAIL) {
+        return;
+    }
+    
     let PARENT_NICK = parentComment.get('nick');
     let SITE_NAME = process.env.SITE_NAME;
     let NICK = currentComment.get('nick');
