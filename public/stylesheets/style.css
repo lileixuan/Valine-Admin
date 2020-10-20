@@ -41,6 +41,14 @@ img {
   max-width: 100%;
 }
 
+.vemoji {
+  margin-top: -10px;
+  max-width: 100px;
+  max-height: 24px;
+  border-radius: 0;
+  vertical-align: middle;
+}
+
 .footer {
   font-size: 0.8rem;
 }
