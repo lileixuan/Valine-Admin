@@ -1,11 +1,44 @@
 body {
   font-size: 1rem;
-  background-image: linear-gradient(to top, #eee3de 0%, #d1cfd7 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(247, 149, 51, 0.1) 0,
+    rgba(243, 112, 85, 0.1) 15%,
+    rgba(239, 78, 123, 0.1) 30%,
+    rgba(161, 102, 171, 0.1) 44%,
+    rgba(80, 115, 184, 0.1) 58%,
+    rgba(16, 152, 173, 0.1) 72%,
+    rgba(7, 179, 155, 0.1) 86%,
+    rgba(109, 186, 130, 0.1) 100%
+  );
 }
 
 a {
   text-decoration: none;
   color: #3eb0ef;
+  position: relative;
+}
+
+a:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #1abc9c;
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+}
+
+a:hover:before {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+img {
+  max-width: 100%;
 }
 
 .footer {
@@ -33,14 +66,11 @@ li {
   display: flex;
   -ms-flex-direction: row;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
 }
 
-@media screen and (max-width:768px) {
-  .comment-main {
-    padding: 1rem;
-  }
+.header .title {
+  flex: 90%;
 }
 
 .comment-main {
@@ -69,14 +99,27 @@ li {
   padding: 0 5px;
 }
 
+.vnoticed {
+  color: #00d61a;
+}
+
 .vcomment {
   line-height: 1.8;
-  word-wrap: break-word;
+  padding: 5px;
+  word-break: break-word;
+}
+
+.vcomment > p {
+  margin: 5px;
 }
 
 .vcard {
-  padding: 2rem 0 2rem 0;
-  border-top: 1px solid #dedede;
+  border: 1px solid #b5b5b5;
+  padding: 20px;
+}
+
+.vcard + .vcard {
+  border-top: none;
 }
 
 .check {
@@ -105,7 +148,7 @@ li {
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 1rem 2rem;
-  width: 320px;
+  width: 350px;
   border: 1px solid #dae1e3;
   background: #f8fbfd;
   border-radius: 5px;
@@ -131,7 +174,7 @@ li {
   display: block;
   user-select: text;
   border-radius: 4px;
-  transition: border-color .15s linear;
+  transition: border-color 0.15s linear;
   -webkit-appearance: none;
   color: #4b5b62;
   -webkit-user-select: text;
@@ -139,15 +182,15 @@ li {
 
 .sign-in-wrap input:focus {
   border-color: #c4c8cb;
-  outline: 0
+  outline: 0;
 }
 
 .sign-in-wrap .login-button {
   padding: 8px 10px;
   cursor: pointer;
   background: #33b1ff;
-  border: .1rem solid #33b1ff;
-  border-radius: .2rem;
+  border: 0.1rem solid #33b1ff;
+  border-radius: 0.2rem;
   color: #fff;
 }
 
@@ -156,6 +199,5 @@ li {
 }
 
 .blue {
-  padding-left: 9px;
   color: #33b1ff;
 }
