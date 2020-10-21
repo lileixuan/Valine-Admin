@@ -19,6 +19,20 @@ a {
   position: relative;
 }
 
+.logout-wrapper {
+  white-space: nowrap;
+}
+
+.comment-main {
+  padding: 1rem 5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .comment-main {
+    padding: 1rem;
+  }
+}
+
 .comment-main a:before {
   content: "";
   position: absolute;
@@ -39,6 +53,17 @@ a {
 
 img {
   max-width: 100%;
+}
+
+pre {
+  background-color: #f8f8f8;
+}
+
+pre code {
+  display: block;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .vemoji {
@@ -79,10 +104,6 @@ li {
 
 .header .title {
   flex: 90%;
-}
-
-.comment-main {
-  padding: 1rem 5rem;
 }
 
 .vhead {
@@ -168,7 +189,7 @@ a.button:hover {
   font-weight: 100;
   text-align: center;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 16vh;
 }
 
 .gh-signup {
@@ -181,6 +202,7 @@ a.button:hover {
   flex-direction: column;
   padding: 1rem 2rem;
   width: 350px;
+  max-width: 80%;
   border: 1px solid #dae1e3;
   background: #f8fbfd;
   border-radius: 5px;
