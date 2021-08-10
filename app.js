@@ -34,6 +34,7 @@ app.use(cookieParser())
 app.use(AV.Cloud.CookieSession({ secret: 'my secret', maxAge: 3600000, fetchUser: true }))
 
 app.get('/', function (req, res) {
+  console.log('访问评论后台')
   if (req.currentUser) {
     res.redirect('/comments')
   } else {
@@ -65,6 +66,12 @@ app.get('/logout', function (req, res) {
   req.currentUser.logOut()
   res.clearCurrentUser() // 从 Cookie 中删除用户
   res.redirect('/')
+})
+
+// 唤醒实例
+app.get('/start', function (req, res) {
+  console.log('成功唤醒实例')
+  res.send('Success')
 })
 
 app.use(function (req, res, next) {

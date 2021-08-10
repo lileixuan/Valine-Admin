@@ -198,3 +198,8 @@ li {
 .blue {
   color: #33b1ff;
 }
+
+img {
+  position: relative;
+  max-width: 100%;
+}

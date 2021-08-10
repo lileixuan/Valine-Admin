@@ -2,7 +2,8 @@
 <html>
 <head>
     <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style.min.css">
+    <script src="/js/medium-zoom.min.js"></script>
 </head>
 <body>
 <div class="comment-main">
@@ -68,6 +69,7 @@
         </li>
         <% } %>
     </ul>
+    <script>mediumZoom('img')</script>
 </div>
 </body>
 </html>

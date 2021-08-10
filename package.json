@@ -7,7 +7,8 @@
   "scripts": {
     "test": "lean up",
     "start": "node server.js",
-    "dev": "nodemon server.js -- "
+    "dev": "nodemon server.js -- ",
+    "cleancss": "cleancss -o ./public/stylesheets/style.min.css ./public/stylesheets/style.css"
   },
   "dependencies": {
     "akismet-api": "^3.0.0",
@@ -23,6 +24,7 @@
     "nodemailer": "^4.0.1"
   },
   "devDependencies": {
+    "clean-css-cli": "^4.3.0",
     "nodemon": "^1.11.0"
   },
   "engines": {
